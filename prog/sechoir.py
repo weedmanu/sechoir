@@ -91,7 +91,7 @@ def sendMail(to, subject, text, files=[]):
 	server.quit()
 
 # on ouvre le fichier config .json
-with open('/var/www/html/humibox/admin/config.json') as config:    
+with open('/var/www/html/sechoir/admin/config.json') as config:    
     config = json.load(config)
 
  # on recupère le login et mdp de la bdd   
@@ -130,6 +130,8 @@ port = int(9999)       		# port utilisé, c'est le même sur les clients php
 s.bind((host,port))   		#  on construit le socket
 s.listen(1)                	# 1 seule instruction acceptée à la fois
 
+ecran.lcd_clear()
+ecran.backlight(0) 
                
 # en écoute boucle infini
 while True: 
@@ -144,7 +146,7 @@ while True:
 	tempC = round(tempC,1)
 	
 	# on créer le fichier
-	fname = "/var/www/html/humibox/result.csv"    
+	fname = "/var/www/html/sechoir/result.csv"    
 	file = open(fname, "wb")
 	 
 	try:
@@ -160,12 +162,6 @@ while True:
 	finally:
 		# Fermeture du fichier source    
 		file.close()    
-
-
-	print ("Point froid : ")
-	print ("humidité {0:0.1f} % et température {1:0.1f} °C".format(humiF, tempF))
-	print ("Point chaud :")
-	print ("humidité {0:0.1f} % et température {1:0.1f} °C".format(humiC, tempC))
 	
 	conn,addr = s.accept()        # si un client se connecte
 	data = conn.recv(2048)        # met dans la variable data ce qu'il a envoyer
@@ -176,6 +172,10 @@ while True:
 		flag_on_off = True	
 		
 	while flag_on_off:		
+		print ("Point froid : ")
+		print ("humidité {0:0.1f} % et température {1:0.1f} °C".format(humiF, tempF))
+		print ("Point chaud :")
+		print ("humidité {0:0.1f} % et température {1:0.1f} °C".format(humiC, tempC))
 		ecran.backlight(1)                                                       	            # on allume l'écran
 		ecran.lcd_clear()                                    						            # on efface l'écran
 		ecran.lcd_display_string('TempCtrl: {0:0.1f}*C'.format(tempC),1)  		# 1 ère ligne
@@ -184,7 +184,7 @@ while True:
 		bdd = MySQLdb.connect(host="localhost",           # en local
 							  user=login,                # l'utilisateur
 							  passwd=mdp,      # son mot de passe
-							  db="humibox")                 # la base de donnée
+							  db=bdd)                 # la base de donnée
 		req = bdd.cursor()
 
 		# insert la date, la température et l'humidité dans la table temphumi
@@ -223,9 +223,8 @@ while True:
 				flag_mail = False	
 				sendMail( [receveur],           # adresse ou l'on veut envoyer le mail
 						"Alerte humibox !!!!",              # sujet  
-						"limite atteinte, il fait %s °C au point chaud ,connecte toi vite !!!" % tempC,         # le message
-						["/var/www/html/humibox/img/alerte.jpeg"])             # chemin pièce jointe  
-											
+						"limite atteinte, il fait %s °C au point chaud ,connecte toi vite !!!" % tempC)         # le message
+																
 				
 		conn,addr = s.accept()        # si un client se connecte
 		data = conn.recv(2048)        # met dans la variable data ce qu'il a envoyer
