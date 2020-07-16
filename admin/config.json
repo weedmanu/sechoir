@@ -1,8 +1,8 @@
 { 	
 	"mysql": 
 	{	
-		"loginmysql": "XXXX",
-		"mdpmysql": "YYYY", 
-		"bdd": "ZZZZ"
+		"loginmysql": "manu",
+		"mdpmysql": "manu@.13", 
+		"bdd": "sechoir"
 	}
  }

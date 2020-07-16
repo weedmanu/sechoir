@@ -1,6 +1,6 @@
 <?php 
     // on récupère les infos dans config.json
-$json = file_get_contents("/var/www/html/humibox/admin/config.json");
+$json = file_get_contents("/var/www/html/sechoir/admin/config.json");
 $config = json_decode($json);
 
 // on passe en variable php les champs qui nous intéressent
