@@ -1,0 +1,69 @@
+html {  
+  background: #999;
+}
+
+body {
+	display: flex; 
+	flex-direction: column; /* correction bug IE de min-height non appliqué à body */
+}
+
+form {
+	width: 25%;	
+}
+
+label {
+  width: 10%; 
+  font-size: 1em;
+  margin-top: 1%;  
+}
+
+input {
+  width: 100px;
+  background-color: #BCF5A9;
+  border-radius: 7pt;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 1em;
+  margin-top: 2%;
+   
+}
+
+input[type=submit] {
+  width: 100%;
+  padding: 3%;
+}
+
+input[type=radio] {
+  width: 10%;
+  padding: 1%;
+}
+
+
+#lon, #lat {
+  width: 50%;
+}
+
+#envoyeur, #receveur {
+   width: 100%; 
+}
+
+#mdpenvoyeur {
+   width: 50%;
+}
+
+#ipdupi {
+	width: 50%;
+}
+
+#loginadmin, #mdpadmin {
+	width:50%;
+}
+
+legend {
+	font-size: 1.2em;
+	margin-left: 1%;
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 1%;
+	margin-top: 1%;
+}

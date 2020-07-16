@@ -1,0 +1,132 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 95%;
+    margin: 0;
+    padding: 0;    
+    background-color : black;
+    color : white;
+}
+
+
+.conteneurH {    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 3%;    
+}
+
+#titre {    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 5%;
+    margin-bottom:5%;
+    font-style: italic;
+    font-size: 22px;
+    color:#D9D960;
+}
+
+.element {
+    margin: auto;
+    text-align: center; 
+}
+
+h1,h3 {
+	color: #FDFB92;
+	text-align: center;
+	margin: auto
+}
+
+#date {
+    margin:  auto;
+    text-align: center;
+    font-size : 200%;
+    color:#90EE90;
+}
+
+#heure {
+    margin:  auto;
+    text-align: center;
+    font-size     : 400%;   
+    color: #EF9090;
+}
+
+#serpent {
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;    
+}
+
+#histo {    
+    padding: 5px 10px; 
+    background: #90EE90;
+    color: black;   
+    font-size: 18px;
+    font-style: italic;    
+    border-radius: 25pt;
+}
+
+#admin {    
+    padding: 5px 10px; 
+    background: #EF9090;
+    color: black;   
+    font-size: 18px;
+    font-style: italic;    
+    border-radius: 25pt;
+}
+#serpent a {
+color: grey;
+padding: 20px 10px 10px 95px;
+background: rgba(0,0,0,0.5) url(img/serpent.png) no-repeat 5px 10px;
+}
+
+/* première étape */
+#serpent a, #serpent a:hover, #serpent a:focus {
+color: white;
+animation-name: serpent; /* nom de l'animation */
+animation-duration: 4s; /* temps de l'animation (4s) */
+animation-iteration-count: infinite; /* nombre de boucles (infinie) */
+animation-timing-function: linear; /* accelération de l'animation (constant) */
+}
+/* deuxième étape */
+@keyframes serpent {   
+0% {background:rgba(0,0,0,0.4) url(img/serpent.png) no-repeat 5px 10px;}
+50% {background:rgba(0,0,0,1) url(img/serpent.png) no-repeat 40px 10px;}
+100% {background:rgba(0,0,0,0.4) url(img/serpent.png) no-repeat 5px 10px;}
+}
+
+#pc {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;     
+}
+
+#pc a {
+color: grey;
+padding: 15px 10px 10px 95px;
+background: rgba(0,0,0,0.5) url(img/pc.png) no-repeat 5px 10px;
+}
+
+/* première étape */
+#pc a, #pc a:hover, #pc a:focus {
+color: white;
+animation-name: pc; /* nom de l'animation */
+animation-duration: 4s; /* temps de l'animation (4s) */
+animation-iteration-count: infinite; /* nombre de boucles (infinie) */
+animation-timing-function: linear; /* accelération de l'animation (constant) */
+}
+/* deuxième étape */
+@keyframes pc {    
+0% {background:rgba(0,0,0,0.4) url(img/pc.png) no-repeat 5px 10px;}
+50% {background:rgba(0,0,0,1) url(img/pc.png) no-repeat 40px 10px;}
+100% {background:rgba(0,0,0,0.4) url(img/pc.png) no-repeat 5px 10px;}
+}

@@ -1,0 +1,8 @@
+{ 	
+	"mysql": 
+	{	
+		"loginmysql": "XXXX",
+		"mdpmysql": "YYYY", 
+		"bdd": "ZZZZ"
+	}
+ }
